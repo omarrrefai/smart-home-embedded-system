@@ -1,0 +1,37 @@
+main
+	__CC2DW
+		____DoICP
+	read_temperature
+		ATD_init_TMP
+		ATD_read_TMP
+			word2double
+				NRM3232
+					RES032
+					SETFUN32
+					FIXSIGN32
+		Mul_32x32_FP
+			RES032
+			SETFOV32
+			SETFUN32
+		Div_32x32_FP
+			SETFDZ32
+			RES032
+			SETFOV32
+			SETFUN32
+		double2word
+			SETIOV3224
+		Compare_Double
+	PWM
+		Mul_16X16_U
+		Div_16X16_U
+		myDelay
+interrupt
+	myDDelay
+	ATD_init_LDR
+	LDR_Servo
+		ATD_read_LDR
+		Mul_16X16_U
+		Div_16X16_U
+	Rotation0
+	Rotation45
+	Rotation90
